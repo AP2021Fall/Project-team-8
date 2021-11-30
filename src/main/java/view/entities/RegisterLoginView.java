@@ -1,10 +1,13 @@
 package view.entities;
 
+import controller.LoginController;
+import model.Respond;
 import view.*;
 
 public class RegisterLoginView extends View {
     /* Static Fields */
     private static final Input input = new Input(Section.REGISTER_LOGIN);
+    private static final LoginController controller = new LoginController();
 
     /* Constructor */
     public RegisterLoginView(Window window) {
@@ -27,10 +30,16 @@ public class RegisterLoginView extends View {
     }
 
     public void handleSignUp(String username, String pass1, String pass2, String email, String name, String birthday) {
-        System.out.println("handle sign up");
+        Respond respond = controller.request(() -> controller.signUp(username, pass1, pass2, email, name, birthday));
+
+        // Now Handle Respond
+        System.out.println(respond.getMessage());
     }
 
     public void handleLogin(String username, String password) {
-        System.out.println("handle login");
+        Respond respond = controller.request(() -> controller.login(username, password));
+
+        // Now Handle Respond
+        System.out.println(respond.getMessage());
     }
 }
