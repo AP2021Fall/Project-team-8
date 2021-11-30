@@ -1,6 +1,6 @@
 package controller;
 
-import model.Respond;
+import model.domain.Respond;
 
 import java.util.concurrent.Callable;
 

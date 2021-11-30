@@ -1,7 +1,7 @@
 package view.entities;
 
 import controller.LoginController;
-import model.Respond;
+import model.domain.Respond;
 import view.*;
 
 public class RegisterLoginView extends View {

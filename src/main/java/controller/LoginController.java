@@ -1,6 +1,6 @@
 package controller;
 
-import model.Respond;
+import model.domain.Respond;
 
 public class LoginController extends Controller {
     /* Constructor */
@@ -19,7 +19,6 @@ public class LoginController extends Controller {
 
     public Respond login(String username, String password) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
-
         // Check For Error
 
         // Success
