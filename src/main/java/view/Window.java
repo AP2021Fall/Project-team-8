@@ -42,6 +42,8 @@ public class Window {
 
     // Main loop to run window view
     public void run() {
+        System.out.println("welcome to our app\nIf you stock just call help");
+        // Main Loop
         while (getView() != null) {
             getView().run();
         }
