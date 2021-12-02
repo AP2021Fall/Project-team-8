@@ -17,7 +17,7 @@ public abstract class Dao<T> {
 
     public abstract void update(T t) throws SQLException;
 
-    public abstract void delete(T t);
+    public abstract void delete(T t) throws SQLException;
 
 
     protected PreparedStatement preparedStatement(String query) {
