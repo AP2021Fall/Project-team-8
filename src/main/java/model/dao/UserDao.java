@@ -1,50 +1,54 @@
 package model.dao;
 
-
 import model.domain.Date;
 import model.domain.User;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.Dictionary;
 
-public class UserDao extends Dao<User> {
-
-    /* Constructor */
-    public UserDao() {
-    }
-
-
-    /* Instance Fields */
-    public int countByUsername(String username) throws SQLException {
+public class UserDao extends Dao {
+    /* Static Methods */
+    public static int countByUsername(String username) throws SQLException {
         String getByUsername = "select * from `user` where `user`.`username` = ?";
         PreparedStatement preparedStatement = preparedStatement(getByUsername);
         preparedStatement.setString(1, username);
         return getCount(preparedStatement);
     }
 
-    public int countByEmail(String email) throws SQLException {
+    public static int countByEmail(String email) throws SQLException {
         String getByEmail = "select * from `user` where `user`.`email` = ?";
         PreparedStatement preparedStatement = preparedStatement(getByEmail);
         preparedStatement.setString(1, email);
         return getCount(preparedStatement);
     }
 
-    public User getByUsername(String username) throws SQLException {
-        ArrayList<Dictionary<String, String>> result;
-        Dictionary<String, String> user;
-        String getByUsername = "select * from `user` where `user`.`username` = ?";
+    public static User getByUsernamePassword(String username, String password) throws SQLException {
+        User user = new User();
+        String getByUsername = "select * from `user` where `user`.`username` = ? and `user`.`password` = ?";
+        ResultSet resultSet;
+
         PreparedStatement preparedStatement = preparedStatement(getByUsername);
         preparedStatement.setString(1, username);
-        result = getResult(preparedStatement);
-        if (result.size() != 1) return null;
-        user = result.get(0);
-        return new User(Integer.parseInt(user.get("id")), user.get("username"), user.get("password"), user.get("name"), user.get("email"), new Date(user.get("birthday")), Boolean.parseBoolean(user.get("is_admin")));
+        preparedStatement.setString(2, password);
+        resultSet = preparedStatement.executeQuery();
+        if (!resultSet.isBeforeFirst()) return null;
+        resultSet.next();
+
+        // Set User Fields
+        user.setId(resultSet.getInt("id"));
+        user.setUsername(resultSet.getString("username"));
+        user.setPassword(resultSet.getString("password"));
+        user.setAdmin(resultSet.getBoolean("is_admin"));
+        user.setName(resultSet.getString("name"));
+        user.setEmail(resultSet.getString("email"));
+        user.setBirthday(new Date(resultSet.getString("birthday")));
+        user.setScore(resultSet.getInt("score"));
+        user.setOldPasswords(OldPassDao.getOldPasswords(user));
+        user.setLogs(LogDao.getLogs(user));
+        return user;
     }
 
-    @Override
-    public void save(User user) throws SQLException {
+    public static void save(User user) throws SQLException {
         String insertUser = "insert into `user` (`username`, `password`, `email`, `name`, `birthday`) values (?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = preparedStatement(insertUser);
         preparedStatement.setString(1, user.getUsername());
@@ -53,10 +57,10 @@ public class UserDao extends Dao<User> {
         preparedStatement.setString(4, user.getName());
         preparedStatement.setString(5, user.getBirthday().toString());
         preparedStatement.executeUpdate();
+        user.setId(getGenerateKey(preparedStatement));
     }
 
-    @Override
-    public void update(User user) throws SQLException {
+    public static void update(User user) throws SQLException {
         String updateUser = "update `user` set `username` = ?, `password` = ?, `name` = ?, `email` = ?, `score` = ?, `birthday` = ?  where `user`.`id` = ?";
         PreparedStatement preparedStatement = preparedStatement(updateUser);
         preparedStatement.setString(1, user.getUsername());
@@ -69,8 +73,7 @@ public class UserDao extends Dao<User> {
         preparedStatement.executeUpdate();
     }
 
-    @Override
-    public void delete(User user) throws SQLException {
+    public static void delete(User user) throws SQLException {
         String deleteUserById = "delete from `user` where `user`.`id` = ?";
         PreparedStatement preparedStatement = preparedStatement(deleteUserById);
         preparedStatement.setInt(1, user.getId());

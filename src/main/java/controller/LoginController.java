@@ -1,39 +1,47 @@
 package controller;
 
 
+import model.dao.LogDao;
+import model.dao.OldPassDao;
 import model.dao.UserDao;
 import model.domain.Date;
 import model.domain.Respond;
 import model.domain.User;
 
-public class LoginController extends Controller {
-    /* Static Fields */
-    private final static UserDao userDao = new UserDao();
+import java.sql.Timestamp;
+import java.time.Instant;
 
+public class LoginController extends Controller {
     /* Instance Methods */
     public Respond signUp(String username, String password1, String password2, String email, String name, String birthday) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
+        User user;
         // Check For Error
-        if (userDao.countByUsername(username) != 0)
+        if (UserDao.countByUsername(username) != 0)
             throw new Exception(String.format("user with username %s already exists!", username));
         if (!password1.equals(password2)) throw new Exception("Your passwords are not the same!");
-        if (userDao.countByEmail(email) != 0) throw new Exception("User with this email already exists!");
+        if (UserDao.countByEmail(email) != 0) throw new Exception("User with this email already exists!");
         assertValidEmail(email);
 
         // Success
-        userDao.save(new User(username, password1, name, email, new Date(birthday)));
+        user = new User(username, password1, name, email, new Date(birthday));
+        UserDao.save(user);
+        OldPassDao.addOldPass(user);
         return new Respond(true, "user created successfully!");
     }
 
     public Respond login(String username, String password) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
-
+        Timestamp timestamp;
         // Check For Error
-        User user = userDao.getByUsername(username);
+        User user = UserDao.getByUsernamePassword(username, password);
         if (user == null) throw new Exception(String.format("There is not any user with username: %s!", username));
         if (!user.getPassword().equals(password)) throw new Exception("Username and password didn't match!");
 
         // Success
+        timestamp = Timestamp.from(Instant.now());
+        LogDao.addLog(user, timestamp);
+        user.getLogs().add(timestamp);
         return new Respond(true, "user logged in successfully!", user);
     }
 
