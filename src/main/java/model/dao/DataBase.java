@@ -19,7 +19,7 @@ public class DataBase {
         // This is singleton class
     }
 
-    /* Static methods */
+    /* Static Methods */
     public static DataBase getInstance() {
         if (DataBase.dataBase == null)
             DataBase.dataBase = new DataBase();

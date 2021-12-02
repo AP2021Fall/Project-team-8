@@ -6,6 +6,7 @@ public class Respond {
     String message;
     Object content;
 
+    /* Constructor */
     public Respond(boolean success, String message) {
         this.success = success;
         this.message = message;
