@@ -2,14 +2,19 @@ package model.domain;
 
 public class Respond {
     /* Instance Fields */
-    boolean success;
-    String message;
-    Object content;
+    private final boolean success;
+    private String message;
+    private Object content;
 
-    /* Constructor */
+    /* Constructors */
     public Respond(boolean success, String message) {
         this.success = success;
         this.message = message;
+    }
+
+    public Respond(boolean success, Object content) {
+        this.success = success;
+        this.content = content;
     }
 
     public Respond(boolean success, String message, Object content) {
@@ -31,4 +36,3 @@ public class Respond {
         return message;
     }
 }
-
