@@ -2,5 +2,5 @@ package view;
 
 // All View Name Enum
 public enum Section {
-    REGISTER_LOGIN,
+    REGISTER_LOGIN,Main_Menu,Profile_Menu,
 }

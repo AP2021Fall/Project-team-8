@@ -9,6 +9,12 @@ public enum Command {
     REGISTER_LOGIN_SIGN_UP(Section.REGISTER_LOGIN, "^\\s*user create --username (?<username>.+) --password1 (?<password1>.+) --password2 (?<password2>.+) --email (?<email>.+) --name (?<name>.+) --birthday (?<birthday>\\d{4}-\\d{2}-\\d{2})\\s*$", "user create --username <username> --password1 <password> --password2 <password> --email <email> --name <name> --birthday <yyyy-MM-dd>"),
     REGISTER_LOGIN_LOGIN(Section.REGISTER_LOGIN, "^\\s*user login --username (?<username>.+) --password (?<password>.+)\\s*$", "user login --username <username> --password <password>"),
 
+    //Main Menu
+    Main_Menu_Enter_Menu(Section.Main_Menu,"^\\s*enter menu (?<menuName>.+)\\s*$","enter menu <MenuName>"),
+
+    //Profile Menu
+
+
     // Global Commands
     GLOBAL_BACK(null, "back", "back"),
     GLOBAL_HELP(null, "help", "help"),
