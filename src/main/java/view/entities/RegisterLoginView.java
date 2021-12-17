@@ -2,6 +2,7 @@ package view.entities;
 
 import controller.LoginController;
 import model.domain.Respond;
+import model.domain.User;
 import view.*;
 
 public class RegisterLoginView extends View {
@@ -38,8 +39,13 @@ public class RegisterLoginView extends View {
 
     public void handleLogin(String username, String password) {
         Respond respond = controller.request(() -> controller.login(username, password));
-
+        User user;
         // Now Handle Respond
+        if (respond.isSuccess()) {
+            user = (User) respond.getContent();
+            if (user.isAdmin()) window.pushView(new AdminView(window, user));
+            else window.pushView(new MainView(window, user));
+        }
         System.out.println(respond.getMessage());
     }
 }
