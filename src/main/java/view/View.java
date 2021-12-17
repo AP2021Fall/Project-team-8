@@ -12,7 +12,7 @@ public abstract class View {
     /* Instance Methods */
     public abstract void run();
 
-    protected void back() {
+    public void back() {
         window.popView();
     }
 }
