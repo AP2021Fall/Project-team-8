@@ -1,5 +1,6 @@
 package view;
 
+import model.domain.User;
 import view.entities.RegisterLoginView;
 
 import java.util.LinkedList;
@@ -10,6 +11,7 @@ public class Window {
 
     /* Instance Fields */
     private final LinkedList<View> viewHistory = new LinkedList<>();
+    private User user = null;
 
     /* Constructor */
     private Window() {
@@ -27,6 +29,14 @@ public class Window {
     }
 
     /* Getters And Setters */
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public View getView() {
         return viewHistory.peekLast();
     }
