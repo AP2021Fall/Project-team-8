@@ -61,6 +61,7 @@ public class DataBase {
             // if the error message is "out of memory",
             // it probably means no database file is found
             System.err.println(e.getMessage());
+            System.exit(e.hashCode());
         }
     }
 
@@ -71,6 +72,7 @@ public class DataBase {
         } catch (SQLException e) {
             // connection close failed.
             System.err.println(e.getMessage());
+            System.exit(e.hashCode());
         }
     }
 }
