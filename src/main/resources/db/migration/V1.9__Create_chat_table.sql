@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `chat`
     `send_by`  int(10) UNSIGNED NOT NULL,
     `send_at`  timestamp        NOT NULL,
     `text`     text             NOT NULL,
-    KEY `board_id` (`board_id`
-        )
+    KEY `board_id` (`board_id`),
+    KEY `send_by` (`send_by`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;

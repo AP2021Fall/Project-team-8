@@ -1,13 +1,9 @@
 --
--- Constraints for dumped tables
---
-
---
 -- Constraints for table `assigned`
 --
 ALTER TABLE `assigned`
-    ADD CONSTRAINT `assigned_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-    ADD CONSTRAINT `assigned_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `task` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+    ADD CONSTRAINT `assigned_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `task` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    ADD CONSTRAINT `assigned_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `participant` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `board`
@@ -19,13 +15,15 @@ ALTER TABLE `board`
 -- Constraints for table `chat`
 --
 ALTER TABLE `chat`
-    ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`board_id`) REFERENCES `board` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+    ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`board_id`) REFERENCES `board` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    ADD CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`send_by`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 
 --
 -- Constraints for table `list`
 --
 ALTER TABLE `list`
-    ADD CONSTRAINT `list_ibfk_1` FOREIGN KEY (`id`) REFERENCES `board` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+    ADD CONSTRAINT `list_ibfk_1` FOREIGN KEY (`board_id`) REFERENCES `board` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `log`
@@ -58,5 +56,4 @@ ALTER TABLE `participant`
 ALTER TABLE `task`
     ADD CONSTRAINT `task_ibfk_1` FOREIGN KEY (`list_id`) REFERENCES `list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
     ADD CONSTRAINT `task_ibfk_2` FOREIGN KEY (`board_id`) REFERENCES `board` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 COMMIT;

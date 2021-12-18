@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `notification`
     `from_id` int(10) UNSIGNED NOT NULL,
     `text`    text             NOT NULL,
     `send_at` timestamp        NOT NULL,
-    KEY `to_id` (`to_id`
-        )
+    KEY `to_id` (`to_id`),
+    KEY `from_id` (`from_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
