@@ -1,0 +1,43 @@
+@font-face {
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+* {
+    -fx-main-color: rgb(255, 255, 255);
+    -fx-time-color: #78789d;
+    -fx-text-color: #454564;
+}
+
+#name {
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-text-color;
+}
+
+#time {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-size: 11px;
+    -fx-text-fill: -fx-time-color;
+}
+
+#comment {
+    -fx-effect: dropshadow(three-pass-box, rgba(211, 211, 211, 0.51), 10, 0, 0, 0);
+    -fx-background-color: -fx-main-color;
+    -fx-font-family: "Roboto Regular";
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-color;
+}
+
+
+#comment .content {
+    -fx-background-color: -fx-main-color;
+    -fx-padding: 10px;
+}

@@ -1,0 +1,197 @@
+@font-face {
+    src: url("../fonts/Roboto-Thin.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+#body {
+    -fx-background-color: white;
+}
+
+#picture {
+    -fx-background-image: url('../images/change-user_background.jpg');
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
+
+#usernameInput, #emailInput, #confirmInput, #passwordInput {
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 15px 10px 15px 40px;
+    -fx-background-color: white;
+    -fx-background-radius: 7px;
+    -fx-border-radius: 7px;
+    -fx-border-color: #e5e5e5;
+}
+#errorLabel{
+    -fx-font-family: "Roboto Medium";
+}
+
+#usernameInput:focused, #emailInput:focused, #confirmInput:focused, #passwordInput:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 66, 255, 0.21), 5, 0, 0, 0);
+    -fx-border-color: rgba(162, 183, 255, 0.56);
+}
+
+#userLabel {
+    -fx-graphic: url("../icons/user.png");
+}
+
+#passwordLabel {
+    -fx-graphic: url("../icons/password-lock.png");
+    -fx-opacity: 0.6;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+#confirmLabel {
+    -fx-graphic: url("../icons/password-confirm.png");
+    -fx-opacity: 0.6;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+#birthdayLabel {
+    -fx-graphic: url("../icons/birthday.png");
+    -fx-opacity: 0.9;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+#emailLabel {
+    -fx-graphic: url("../icons/email.png");
+}
+
+#changeUserBtn {
+    -fx-padding: 12px 15px;
+    -fx-background-radius: 7px;
+    -fx-font-family: "Roboto Medium";
+    -fx-text-fill: white;
+    -fx-background-color: rgb(66, 87, 194);
+}
+
+#backButton {
+    -fx-start-margin: 12px;
+    -fx-graphic: url("../icons/back.png");
+    -fx-max-width: 10px;
+    -fx-max-height: 10px;
+}
+
+.date-picker {
+    -fx-font-family: "Roboto Medium";
+    -fx-background-color: white;
+    -fx-background-radius: 7px;
+    -fx-border-radius: 7px;
+    -fx-border-color: #e5e5e5;
+
+}
+
+.date-picker > .text-field {
+    -fx-padding: 15px 10px 15px 40px;
+    -fx-background-color: white;
+}
+
+.date-picker:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 66, 255, 0.21), 5, 0, 0, 0);
+    -fx-border-color: rgba(162, 183, 255, 0.56);
+}
+
+
+#title {
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 40px;
+    -fx-text-fill: #3d3d64;
+}
+
+#desc {
+    -fx-font-family: "Roboto Medium";
+    -fx-text-fill: #a6a6a6;
+    -fx-font-size: 15px;
+}
+
+
+* {
+    -fx-primary-color: rgb(66, 87, 194);
+    -fx-secondary-color: #4B6EAF;
+    -fx-light-grey-color: #d1d1d1;
+    -fx-focus-color: -fx-secondary-color;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 0 7px 7px 0;
+    -fx-padding: 0 10px;
+    -fx-cursor: hand;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+}
+
+.date-picker .cell {
+    -fx-background-color: white;
+    -fx-padding: 13px;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: -fx-light-grey-color;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+}
+
+.date-picker .cell:focused {
+    -fx-background-color: -fx-light-grey-color;
+    -fx-text-fill: white;
+}
+
+.date-picker .selected {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+.date-picker .selected:focused {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup {
+    -fx-border-color: transparent;
+    -fx-background-radius: 7px;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-primary-color;
+    -fx-padding: 17px;
+    -fx-background-radius: 7px 7px 0 0;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: -fx-secondary-color;
+}
+
+.date-picker-popup .spinner .button {
+    -fx-cursor: hand;
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: white;
+}
+
+.date-picker-popup .spinner .button:hover .left-arrow, .date-picker-popup .spinner .button:hover .right-arrow {
+    -fx-background-color: -fx-secondary-color;
+}
