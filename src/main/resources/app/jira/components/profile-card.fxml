@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root fx:id="body" prefWidth="300.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/17"
+         xmlns:fx="http://javafx.com/fxml/1">
+    <HBox fx:id="header" prefHeight="90.0" prefWidth="200.0">
+        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0">
+            <Label fx:id="name" prefWidth="230.0" text="Mohammad Matin Parvin"/>
+            <Label fx:id="username" prefWidth="230.0" text="mmp_8001"/>
+        </VBox>
+        <Label fx:id="close" alignment="CENTER" prefHeight="30.0" prefWidth="30.0"/>
+    </HBox>
+    <VBox fx:id="btnContainer" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+
+    </VBox>
+</fx:root>

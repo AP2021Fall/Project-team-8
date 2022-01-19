@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root fx:id="card" alignment="CENTER_LEFT" fillHeight="false" maxWidth="420.0" minWidth="420.0" prefHeight="87.0" prefWidth="420.0" spacing="10.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="title" prefHeight="17.0" prefWidth="167.0" text="TASK-1" />
+    <ProgressBar fx:id="progress" prefHeight="25.0" prefWidth="199.0" progress="0.37" />
+    <Label fx:id="percentage" prefHeight="17.0" prefWidth="45.0" text="33%" />
+</fx:root>
