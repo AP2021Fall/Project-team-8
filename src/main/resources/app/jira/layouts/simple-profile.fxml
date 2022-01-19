@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="body" onMouseClicked="#clearFocus" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.jira.view.entities.SimpleProfile">
+
+    <AnchorPane fx:id="picture" layoutX="600.0" prefHeight="800.0" prefWidth="600.0" />
+
+    <AnchorPane fx:id="main" prefHeight="800.0" prefWidth="600.0">
+        <Label fx:id="backButton" maxHeight="55" maxWidth="55" onMouseClicked="#back" prefHeight="55" prefWidth="55">
+            <padding>
+                <Insets left="20.0" top="10.0" />
+            </padding></Label>
+        <GridPane alignment="CENTER" layoutX="131.0" layoutY="55.0" prefHeight="574.0" prefWidth="338.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="121.6666768391927" minHeight="28.66665140787761" prefHeight="73.3333231608073" />
+                <RowConstraints maxHeight="121.6666768391927" minHeight="170.0" prefHeight="39.99997965494792" valignment="CENTER" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" />
+                <RowConstraints maxHeight="5.0" minHeight="20.0" prefHeight="5.0" />
+            </rowConstraints>
+            <Label fx:id="title" text="Profile" />
+            <ImageView fx:id="profile_image" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="desc" GridPane.rowIndex="1" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                <children>
+                    <Label fx:id="userLabel" prefHeight="20.0" prefWidth="20.0">
+                        <HBox.margin>
+                            <Insets top="10.0" />
+                        </HBox.margin></Label>
+                    <Label maxHeight="1.7976931348623157E308" text="Username :">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Label>
+                    <Label fx:id="usernameField" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" minWidth="-Infinity" text="Name">
+                        <HBox.margin>
+                            <Insets left="10" />
+                        </HBox.margin>
+                    </Label>
+                </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                <children>
+                    <Label fx:id="emailLabel" prefHeight="20.0" prefWidth="20.0">
+                        <HBox.margin>
+                            <Insets top="10.0" />
+                        </HBox.margin></Label>
+                    <Label maxHeight="1.7976931348623157E308" text="Email :">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Label>
+                    <Label fx:id="emailField" maxHeight="1.7976931348623157E308" text="mohammad@gmail.com">
+                        <HBox.margin>
+                            <Insets left="10" />
+                        </HBox.margin>
+                    </Label>
+                </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                <children>
+                    <Label fx:id="birthdayLabel" prefWidth="20.0">
+                        <HBox.margin>
+                            <Insets top="10.0" />
+                        </HBox.margin>
+                    </Label>
+                    <Label maxHeight="1.7976931348623157E308" text="Birth-Date:">
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+                    </Label>
+                    <Label fx:id="dateField" maxHeight="1.7976931348623157E308" text="1977/12/12">
+                        <padding>
+                            <Insets left="10.0" />
+                        </padding>
+                    </Label>
+                </children>
+            </HBox>
+        </GridPane>
+    </AnchorPane>
+
+</AnchorPane>
