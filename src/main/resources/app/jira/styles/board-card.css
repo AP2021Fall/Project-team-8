@@ -1,0 +1,14 @@
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+#body {
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+#boardName {
+    -fx-font-family: "Roboto Bold";
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+}
