@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="body" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.jira.view.entities.MainMenu">
+    <AnchorPane fx:id="picture" layoutX="550.0" prefHeight="800.0" prefWidth="600.0"/>
+    <AnchorPane fx:id="main" prefHeight="800.0" prefWidth="600.0">
+        <GridPane layoutX="131.0" layoutY="193.0" prefHeight="351.0" prefWidth="338.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="121.6666768391927" minHeight="28.66665140787761"
+                                prefHeight="73.3333231608073"/>
+                <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" valignment="BOTTOM"/>
+                <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" valignment="BOTTOM"/>
+                <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" valignment="BOTTOM"/>
+                <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" valignment="BOTTOM"/>
+            </rowConstraints>
+            <Label fx:id="title" text="Main Menu"/>
+            <Button fx:id="profileBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                    onMouseClicked="#goToProfileMenu" text="Profile Menu" GridPane.rowIndex="3"/>
+            <Button fx:id="boardBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                    onMouseClicked="#goToBoardMenu" text="Workspace Menu" GridPane.rowIndex="1"/>
+            <Button fx:id="calendarBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+                    onMouseClicked="#goToCalendarMenu" text="Calendar Menu" GridPane.rowIndex="2"/>
+            <Button fx:id="logoutBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#logout"
+                    text="Log Out" GridPane.rowIndex="4"/>
+        </GridPane>
+    </AnchorPane>
+
+</AnchorPane>
