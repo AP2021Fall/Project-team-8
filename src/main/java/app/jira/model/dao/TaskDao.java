@@ -112,6 +112,7 @@ public class TaskDao extends Dao {
             task.setList(list);
             task.getAssignedUsers().putAll(AssignedDao.getAssignedUser(task));
             tasks.add(task);
+            task.getComments().addAll(CommentDao.getCommentsByTask(task));
         }
         return tasks;
     }

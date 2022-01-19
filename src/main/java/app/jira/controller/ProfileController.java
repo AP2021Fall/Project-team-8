@@ -23,6 +23,19 @@ public class ProfileController extends Controller {
         return new Respond(true, "password changed successfully");
     }
 
+    public Respond changePass(User loggedInUser, String newPass) throws Exception {
+        // NOTE: all logics go here if we have error throw Exception
+
+        // Check For Error
+        if (OldPassDao.countOldPassword(loggedInUser, newPass) != 0) throw new Exception("Please type a New Password!");
+        User.assertValidPassword(newPass);
+        // Success
+        loggedInUser.setPassword(newPass);
+        OldPassDao.addOldPass(loggedInUser);
+        UserDao.update(loggedInUser);
+        return new Respond(true, "password changed successfully");
+    }
+
     public Respond changeUsername(User loggedInUser, String newUsername) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
 

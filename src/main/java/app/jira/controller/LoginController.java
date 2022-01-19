@@ -18,6 +18,8 @@ public class LoginController extends Controller {
         User user;
 
         // Check For Error
+        if (name.length() <= 3) throw new Exception("name must be at least 4 characters");
+        if (username.length() <= 3) throw new Exception("username must be at least 4 characters");
         if (UserDao.countByUsername(username) != 0)
             throw new Exception(String.format("user with username %s already exists!", username));
         if (!password1.equals(password2)) throw new Exception("Your passwords are not the same!");

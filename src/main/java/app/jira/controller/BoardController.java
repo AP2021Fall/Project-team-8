@@ -126,10 +126,12 @@ public class BoardController extends Controller {
         suspendedUser = board.assertContributorExists(username);
         if (remove == null) {
             if (user.getUsername().equals(username)) throw new Exception("you are the leader of this board");
-            if (suspendedUser.isSuspend()) throw new Exception("user (%s) is already suspended");
+            if (suspendedUser.isSuspend())
+                throw new Exception(String.format("user (%s) is already suspended", suspendedUser.getUser().getUsername()));
             suspendedUser.setSuspend(true);
         } else {
-            if (!suspendedUser.isSuspend()) throw new Exception("user (%s) is not suspended");
+            if (!suspendedUser.isSuspend())
+                throw new Exception(String.format("user (%s) is not suspended", suspendedUser.getUser().getUsername()));
             suspendedUser.setSuspend(false);
         }
 
@@ -211,12 +213,13 @@ public class BoardController extends Controller {
     }
 
     // Task Section
-    public Respond addTask(User loggedInUser, Board board, String title, String deadline, String listName, String priority, String description) throws Exception {
+    public Respond addTask(User loggedInUser, Board board, String title, String deadline, List list, String priority, String description) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
         ArrayList<List> lists;
         List selectedList;
         Priority priorityObj = Priority.LOWEST;
         Timestamp deadTime;
+        Task task;
 
         // Check For Error
         authentication(loggedInUser, board);
@@ -226,8 +229,8 @@ public class BoardController extends Controller {
 
         // List (Optional)
         selectedList = lists.get(0);
-        if (listName != null) {
-            selectedList = assertListExists(lists, listName);
+        if (list.getName() != null) {
+            selectedList = assertListExists(lists, list.getName());
         }
 
         // Priority (Optional)
@@ -239,8 +242,10 @@ public class BoardController extends Controller {
         deadTime = assertValidTimestamp(deadline);
 
         // Success
-        TaskDao.save(new Task(title, priorityObj, "in-progress", Timestamp.from(Instant.now()), deadTime, board, selectedList, description));
-        return new Respond(true, String.format("task (%s) added to list (%s) successfully", title, selectedList.getName()));
+        task = new Task(title, priorityObj, "in-progress", Timestamp.from(Instant.now()), deadTime, board, selectedList, description);
+        list.getTasks().add(task);
+        TaskDao.save(task);
+        return new Respond(true, String.format("task (%s) added to list (%s) successfully", title, selectedList.getName()), task);
     }
 
     public Respond removeTask(User loggedInUser, Board board, String taskId) throws Exception {
@@ -253,15 +258,14 @@ public class BoardController extends Controller {
         return new Respond(true, String.format("task with id (%s) removed successfully", taskId));
     }
 
-    public Respond changeTask(User loggedInUser, Board board, String taskId, String newTitle, String newListName, String newPriority, String newDeadline, String newDescription) throws Exception {
+    public Respond changeTask(User loggedInUser, Board board, Task task, String newTitle, String newListName, String newPriority, String newDeadline, String newDescription) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
-        Task task;
         List newList;
         ArrayList<List> lists;
 
         // Check For Error
         authentication(loggedInUser, board);
-        task = assertTaskExists(board, taskId);
+        task = assertTaskExists(board, task.getId() + "");
 
         // New List (Optional)
         if (newListName != null) {
@@ -296,16 +300,16 @@ public class BoardController extends Controller {
         return new Respond(true, "task edited successfully");
     }
 
-    public Respond assignTask(User loggedInUser, Board board, String taskId, String assignedUsernamesStr) throws Exception {
+    public Respond assignTask(User loggedInUser, Board board, Task task, String assignedUsernamesStr) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
-        Task task;
         String[] usernames = assignedUsernamesStr.split(",\\s*");
         ArrayList<User> assignedTo = new ArrayList<>();
-        User contributor;
+        User contributor = null;
+        Timestamp now;
 
         // Check For Error
         authentication(loggedInUser, board);
-        task = assertTaskExists(board, taskId);
+        assertTaskExists(board, task.getId() + "");
 
         // Get Assigned To Users
         for (String username : usernames) {
@@ -316,30 +320,38 @@ public class BoardController extends Controller {
         }
 
         // Success
-        AssignedDao.assignTaskToUsers(task, assignedTo, Timestamp.from(Instant.now()));
+        now = Timestamp.from(Instant.now());
+        task.getAssignedUsers().put(contributor, now);
+        AssignedDao.assignTaskToUsers(task, assignedTo, now);
         return new Respond(true, String.format("users with usernames (%s) added to task (%s) successfully", assignedUsernamesStr, task.getTitle()));
     }
 
-    public Respond removeAssignTask(User loggedInUser, Board board, String taskId, String removed) throws Exception {
+    public Respond removeAssignTask(User loggedInUser, Board board, Task task, String removed) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
-        Task task;
         ArrayList<User> removeUsers = new ArrayList<>();
         Set<User> assignedUsers;
-        User assignedUser;
+        User assignedUser = null;
 
         // Check For Error
         authentication(loggedInUser, board);
-        task = assertTaskExists(board, taskId);
+        assertTaskExists(board, task.getId() + "");
         assignedUsers = AssignedDao.getAssignedUser(task).keySet();
 
         for (String removeUser : removed.split(",\\s*")) {
             assignedUser = assignedUsers.stream().filter(user1 -> user1.getUsername().equals(removeUser)).findFirst().orElse(null);
             if (assignedUser == null)
                 throw new Exception(String.format("task (%s) is not assigned to user (%s)", task.getTitle(), removeUser));
+            task.getAssignedUsers().remove(assignedUser);
             removeUsers.add(assignedUser);
+            task.getAssignedUsers().remove(assignedUser);
         }
 
         // Success
+        for (User user : task.getAssignedUsers().keySet()) {
+            if (assignedUser != null && user.getId() == assignedUser.getId()) {
+                task.getAssignedUsers().remove(user);
+            }
+        }
         AssignedDao.removeAssignTask(task, removeUsers);
         return new Respond(true, String.format("users with username (%s) removed from task (%s) successfully", removed, task.getTitle()));
     }
@@ -407,13 +419,14 @@ public class BoardController extends Controller {
         return new Respond(true, selectedTask);
     }
 
-    public Respond setCommentTask(User loggedInUser, Board board, String taskId, String text) throws Exception {
+    public Respond setCommentTask(User loggedInUser, Board board, Task task, String text) throws Exception {
         // NOTE: all logics go here if we have error throw Exception
         Task selectedTask;
         User sendUser;
+        Comment comment;
 
         // Check For Error
-        selectedTask = assertTaskExists(board, taskId);
+        selectedTask = assertTaskExists(board, task.getId() + "");
         if (loggedInUser.getId() != board.getLeader().getId()) {
             selectedTask.assertIsAssignedTo(loggedInUser);
             board.assertIsNotSuspend(loggedInUser.getUsername());
@@ -422,7 +435,9 @@ public class BoardController extends Controller {
 
 
         // Success
-        CommentDao.save(new Comment(sendUser, text, selectedTask, Timestamp.from(Instant.now())));
+        comment = new Comment(sendUser, text, selectedTask, Timestamp.from(Instant.now()));
+        task.getComments().add(comment);
+        CommentDao.save(comment);
         return new Respond(true, "comment set successfully");
     }
 }
