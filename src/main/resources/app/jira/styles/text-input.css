@@ -1,0 +1,50 @@
+* {
+    -fx-main-color: rgb(236, 236, 236);
+    -fx-main-color-hover: rgb(218, 218, 218);
+    -fx-shadow-color: rgba(0, 0, 0, 0.1);
+    -fx-text-color: #454564;
+    -fx-btn-color: #406b8d;
+    -fx-btn-color-hover: #517fa6;
+}
+
+
+#container {
+    -fx-background-color: -fx-main-color;
+    -fx-cursor: hand;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+}
+
+#container:hover #textArea .content, #container:hover, #container:hover #textArea {
+    -fx-background-color: -fx-main-color-hover;
+}
+
+
+#textArea {
+    -fx-background-color: -fx-main-color;
+    -fx-cursor: hand;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-text-color;
+}
+
+
+#textArea .content {
+    -fx-cursor: hand;
+    -fx-background-color: -fx-main-color;
+    -fx-padding: 10px;
+}
+
+#saveBtn {
+    -fx-background-color: -fx-btn-color;
+    -fx-background-radius: 3px;
+    -fx-padding: 9px 12px;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(70, 127, 162, 0.41), 5, 0, 0, 0);
+}
+
+#saveBtn:hover {
+    -fx-background-color: -fx-btn-color-hover;
+}

@@ -1,0 +1,56 @@
+@font-face {
+    src: url("../fonts/Roboto-Thin.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+#body {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+}
+
+#header {
+    -fx-background-color: #4563c7;
+    -fx-padding: 20px;
+    -fx-background-radius: 5px 5px 0 0;
+}
+
+#btnContainer {
+    -fx-padding: 20px;
+}
+
+#name {
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+#username {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+}
+
+#close {
+    -fx-graphic: url("../icons/close.png");
+    -fx-cursor: hand;
+}
+
+.button {
+    -fx-background-radius: 3px;
+    -fx-background-color: #a6b3e3;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-cursor: hand;
+}
+.button:hover{
+    -fx-background-color: #7891e0;
+}

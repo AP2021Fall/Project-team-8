@@ -1,0 +1,29 @@
+@font-face {
+    src: url("../fonts/Roboto-Thin.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+
+.progress-bar > .track {
+    -fx-text-box-border: #43a9e1;
+    -fx-control-inner-background: #ffffff;
+}
+
+
+#title {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 15px;
+}
+
+#percentage {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 13px;
+
+}
