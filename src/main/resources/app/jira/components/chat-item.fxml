@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root fx:id="commentContainer" type="javafx.scene.layout.GridPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox fx:id="info" alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1">
+        <Label fx:id="name" text="Mohammad Matin Parvin" />
+        <Label fx:id="time" text="yesterday at 10:30 PM" />
+    </HBox>
+    <TextArea fx:id="chatItem" editable="false" text="In chatItem bra in task hast va faghat bra test gozashte shode ast&#10;merci as tavajoh bikraneton&#10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <VBox fx:id="profile" alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <children>
+         <ImageView fx:id="profileImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+      </children></VBox>
+    <rowConstraints>
+        <RowConstraints minHeight="60.0" prefHeight="60.0" />
+      <RowConstraints />
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints hgrow="ALWAYS" />
+    </columnConstraints>
+</fx:root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root fx:id="card" prefHeight="87.0" prefWidth="270.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+        <Label fx:id="title" alignment="TOP_LEFT" lineSpacing="5.0" prefHeight="17.0" prefWidth="220.0" wrapText="true" HBox.hgrow="SOMETIMES" />
+        <Label fx:id="remove" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="30.0" />
+    </HBox>
+    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+        <Label fx:id="description" contentDisplay="CENTER" prefHeight="30.0" prefWidth="30.0" />
+        <Label fx:id="comment" contentDisplay="CENTER" prefHeight="30.0" prefWidth="25.0" />
+        <Label fx:id="commentCount" text="3" />
+    </HBox>
+</fx:root>

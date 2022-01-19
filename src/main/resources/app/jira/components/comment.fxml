@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root fx:id="commentContainer" type="javafx.scene.layout.GridPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1">
+        <Label fx:id="name" text="Mohammad Matin Parvin" />
+        <Label fx:id="time" text="yesterday at 10:30 PM" />
+    </HBox>
+    <TextArea fx:id="comment" editable="false" text="In comment bra in task hast va faghat bra test gozashte shode ast&#10;merci as tavajoh bikraneton&#10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <VBox fx:id="profile" alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+    <rowConstraints>
+        <RowConstraints minHeight="60.0" prefHeight="60.0" />
+      <RowConstraints />
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints minWidth="50.0" prefWidth="50.0" />
+      <ColumnConstraints hgrow="ALWAYS" />
+    </columnConstraints>
+</fx:root>
