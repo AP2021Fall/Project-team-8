@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.ScrollPane?>
+<?import app.jira.view.components.Alert?>
+
+<AnchorPane fx:id="body" maxHeight="800" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.jira.view.entities.Calendar">
+    <AnchorPane fx:id="picture" layoutX="600.0" prefHeight="800.0" prefWidth="600.0" />
+    <AnchorPane fx:id="main" prefHeight="800.0" prefWidth="600.0">
+        <Label fx:id="backButton" layoutX="22.0" layoutY="22.0" onMouseClicked="#back" prefHeight="30.0" prefWidth="30.0" />
+        <GridPane layoutX="130.0" layoutY="135.0" prefHeight="400.0" prefWidth="340.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="121.6666768391927" minHeight="28.66665140787761" prefHeight="73.3333231608073" />
+                <RowConstraints maxHeight="121.6666768391927" minHeight="26.0" prefHeight="39.99997965494792" valignment="TOP" />
+            <RowConstraints maxHeight="450.0" minHeight="45.0" prefHeight="45.0" />
+                <RowConstraints maxHeight="450.0" minHeight="450.0" prefHeight="450.0" />
+            </rowConstraints>
+            <Label fx:id="title" text="Calendar Menu" />
+            <Label fx:id="desc" text="You can see your deadlines here" GridPane.rowIndex="1" />
+         <ScrollPane prefHeight="330.0" prefWidth="340.0" GridPane.rowIndex="3">
+            <content>
+               <TextArea prefHeight="433.0" prefWidth="342.0" fx:id="calendar"/>
+            </content></ScrollPane>
+            <TextField fx:id="searchInput" GridPane.rowIndex="2" />
+            <Label id="searchLabel" maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets left="5.0" />
+                </GridPane.margin>
+            </Label>
+        </GridPane>
+    </AnchorPane>
+    <Alert fx:id="alert" layoutX="80.0" layoutY="719.0" managed="false" prefHeight="17.0" prefWidth="439.0" styleClass="fail" text="something" visible="false" />
+</AnchorPane>
