@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<?import app.jira.view.components.Alert?>
+
+<AnchorPane fx:id="body" maxHeight="800" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.jira.view.entities.AdminNotification">
+    <AnchorPane fx:id="picture" layoutX="600.0" prefHeight="800.0" prefWidth="600.0" />
+    <AnchorPane fx:id="main" prefHeight="800.0" prefWidth="600.0">
+        <Label fx:id="backButton" maxHeight="16" maxWidth="16" onMouseClicked="#back">
+            <padding>
+                <Insets left="20.0" top="10.0" />
+            </padding></Label>
+        <GridPane layoutX="130.0" layoutY="190.0" prefHeight="400.0" prefWidth="340.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="121.6666768391927" minHeight="28.66665140787761" prefHeight="73.3333231608073" />
+                <RowConstraints maxHeight="121.6666768391927" minHeight="26.0" prefHeight="39.99997965494792" valignment="TOP" />
+                <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" />
+            <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" valignment="CENTER" />
+                <RowConstraints />
+                <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" valignment="CENTER" />
+            </rowConstraints>
+            <Label fx:id="title" text="Send Notifications" />
+            <Label fx:id="desc" text="Send notification for anyone you want!" GridPane.rowIndex="1" />
+            <TextField fx:id="usernameInput" promptText="Username" GridPane.rowIndex="2" />
+            <Label fx:id="userLabel" prefHeight="16.0" prefWidth="16.0" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets left="10.0" />
+                </GridPane.margin>
+            </Label>
+            <CheckBox fx:id="sendToAll" text="Send to all !" GridPane.rowIndex="4" />
+            <Button fx:id="changeUserBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#send" text="Send Notification" GridPane.rowIndex="5" />
+         <TextArea fx:id="notificationInput" prefHeight="200.0" prefWidth="200.0" promptText="Notification Message" GridPane.rowIndex="3" />
+
+
+        </GridPane>
+    </AnchorPane>
+    <Alert fx:id="alert" layoutX="55.0" layoutY="666.0" managed="false" prefHeight="17.0" prefWidth="490.0" styleClass="fail" text="something" visible="false" />
+</AnchorPane>
