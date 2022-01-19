@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="body" maxHeight="800" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.jira.view.entities.ScoreBoard">
+    <AnchorPane fx:id="picture" layoutX="600.0" prefHeight="800.0" prefWidth="600.0" />
+    <AnchorPane fx:id="main" prefHeight="800.0" prefWidth="600.0">
+        <Label fx:id="backButton" maxHeight="16" maxWidth="16" onMouseClicked="#back">
+            <padding>
+                <Insets left="20.0" top="10.0" />
+            </padding></Label>
+        <GridPane layoutX="130.0" layoutY="140.0" prefHeight="400.0" prefWidth="340.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="121.6666768391927" minHeight="28.66665140787761" prefHeight="73.3333231608073" />
+                <RowConstraints maxHeight="121.6666768391927" minHeight="32.0" prefHeight="50.99997965494792" valignment="CENTER" />
+                <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" />
+                <RowConstraints maxHeight="450.0" minHeight="450.0" prefHeight="450.0" />
+            </rowConstraints>
+            <Label fx:id="title" text="Score Board" />
+            <Label fx:id="desc" text="See your scores here" GridPane.rowIndex="1" />
+            <ScrollPane fx:id="scrollPane" prefHeight="330.0" prefWidth="340.0" GridPane.rowIndex="3">
+                <content>
+                    <TextArea fx:id="scores" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="447.0" prefWidth="339.0" />
+                </content></ScrollPane>
+            <TextField fx:id="searchInput" GridPane.rowIndex="2" />
+            <Label id="searchLabel" maxHeight="16.0" maxWidth="16.0" minHeight="16.0" minWidth="16.0" prefHeight="16.0" prefWidth="16.0" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets left="5.0" />
+                </GridPane.margin>
+            </Label>
+        </GridPane>
+    </AnchorPane>
+</AnchorPane>
