@@ -6,7 +6,7 @@ import app.jira.view.components.HoverAnimation;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
-public class AdminMenu extends PageController {
+public class AdminMenu extends PageController{
     public Button UserBtn;
     public Button boardBtn;
     public Button NotificationBtn;
@@ -30,7 +30,6 @@ public class AdminMenu extends PageController {
     }
 
     public void goToNotificationMenu(MouseEvent mouseEvent) {
-        Workspace.lastMenu = "admin-menu";
         Window.getInstance().paginate(new Page("admin-notification"));
     }
 

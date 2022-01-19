@@ -4,10 +4,8 @@ import app.jira.controller.BoardController;
 import app.jira.controller.WorkspaceController;
 import app.jira.model.domain.Participant;
 import app.jira.model.domain.Respond;
-import app.jira.view.Page;
 import app.jira.view.Window;
-import app.jira.view.components.Alert;
-import app.jira.view.components.HoverAnimation;
+import app.jira.view.components.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -159,10 +157,6 @@ public class Board extends PageController {
         roadmapBtn.setOnMouseClicked(mouseEvent -> {
             sceneRoot.getChildren().add(new Roadmap(this));
         });
-    }
-
-    public void back() {
-        Window.getInstance().paginate(new Page("board-control"));
     }
 
     public void invite() {
