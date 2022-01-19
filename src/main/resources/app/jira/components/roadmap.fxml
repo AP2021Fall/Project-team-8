@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root fx:id="roadmap" prefHeight="800.0" prefWidth="1200.0" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <ScrollPane fx:id="taskView" hbarPolicy="NEVER" layoutX="200.0" layoutY="90.0" prefHeight="600.0" prefWidth="800.0">
+        <VBox fx:id="taskContainer" alignment="TOP_CENTER" prefWidth="800.0" spacing="10.0">
+         <children>
+            <Label fx:id="title" prefWidth="420.0" text="Roadmap" />
+         </children></VBox>
+    </ScrollPane>
+</fx:root>
