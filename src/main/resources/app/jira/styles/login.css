@@ -1,0 +1,72 @@
+@font-face {
+    src: url("../fonts/Roboto-Thin.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+#body {
+    -fx-background-color: white;
+}
+
+#picture {
+    -fx-background-image: url('../images/login_background.jpg');
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
+
+#usernameInput, #passwordInput {
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 15px 10px 15px 40px;
+    -fx-background-color: white;
+    -fx-background-radius: 7px;
+    -fx-border-radius: 7px;
+    -fx-border-color: #e5e5e5;
+}
+
+#usernameInput:focused, #passwordInput:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 66, 255, 0.21), 5, 0, 0, 0);
+    -fx-border-color: rgba(162, 183, 255, 0.56);
+}
+
+#userLabel {
+    -fx-graphic: url("../icons/user.png");
+}
+
+#keyLabel {
+    -fx-graphic: url("../icons/password-key.png");
+    -fx-opacity: 0.6;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+#loginBtn {
+    -fx-padding: 12px 15px;
+    -fx-background-radius: 7px;
+    -fx-font-family: "Roboto Medium";
+    -fx-text-fill: white;
+    -fx-background-color: rgb(66, 87, 194);
+}
+
+#register, #forgotPassword {
+    -fx-text-fill: rgb(50, 63, 121);
+    -fx-font-family: "Roboto Bold";
+}
+
+#title {
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 40px;
+    -fx-text-fill: #3d3d64;
+}
+
+#desc {
+    -fx-font-family: "Roboto Medium";
+    -fx-text-fill: #a6a6a6;
+    -fx-font-size: 15px;
+}
