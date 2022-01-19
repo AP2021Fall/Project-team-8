@@ -1,5 +1,7 @@
 package app.jira.view;
 
+import app.jira.model.domain.Board;
+import app.jira.model.domain.User;
 import javafx.stage.Stage;
 
 public class Window {
@@ -8,6 +10,9 @@ public class Window {
 
     /* Instance Fields */
     private Stage stage;
+    private User user;
+    private Board board;
+
 
     /* Constructor */
     private Window() {
@@ -27,6 +32,22 @@ public class Window {
     /* Getters And Setters */
     public Stage getStage() {
         return stage;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     /* Instance Methods */
