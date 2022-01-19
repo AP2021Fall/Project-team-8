@@ -1,0 +1,119 @@
+@font-face {
+    src: url("../fonts/Roboto-Thin.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+* {
+    -fx-main-color: rgb(235, 236, 240);
+}
+
+
+#body {
+    -fx-background-color: -fx-main-color;
+    -fx-background-radius: 3px;
+    -fx-padding: 5px;
+}
+
+#remove {
+    -fx-graphic: url("../icons/delete.png");
+    -fx-cursor: hand;
+}
+
+#header {
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 10px;
+    -fx-background-color: -fx-main-color;
+}
+
+#header:focused {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(144, 172, 255, 0.28), 10, 0, 0, 0);
+    -fx-border-width: 2px;
+    -fx-border-color: #5e90f8;
+    -fx-border-radius: 3px;
+}
+
+#addBtn {
+    -fx-background-radius: 3px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 10px;
+    -fx-text-fill: white;
+    -fx-background-color: rgb(70, 75, 117);
+}
+
+#tasks {
+    -fx-padding: 0 0 10px 0;
+}
+
+#scrollPane {
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-border-width: 0;
+    -fx-background-color: rgb(235, 236, 240);
+}
+
+#scrollPane > .viewport {
+    -fx-background-color: rgb(235, 236, 240);
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0.0em;
+    -fx-border-radius: 2.0em;
+}
+
+.scroll-bar .increment-button {
+    visibility: hidden;
+}
+
+.scroll-bar .decrement-button {
+    visibility: hidden;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0.0em;
+    -fx-padding: 0.0 6.0 0.0 0.0;
+
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0.15em 0.0;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: derive(#3d3d3d, 90.0%);
+    -fx-background-insets: 2.0, 0.0, 0.0;
+    -fx-background-radius: 2.0em;
+    -fx-cursor: hand;
+}
+
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: derive(#343434, 10.0%);
+    -fx-background-insets: 2.0, 0.0, 0.0;
+    -fx-background-radius: 2.0em;
+}

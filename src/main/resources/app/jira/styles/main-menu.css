@@ -1,0 +1,37 @@
+@font-face {
+    src: url("../fonts/Roboto-Thin.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+#body {
+    -fx-background-color: white;
+}
+
+#picture {
+    -fx-background-image: url('../images/main_menu_background.jpg');
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
+
+#profileBtn, #calendarBtn, #logoutBtn, #boardBtn {
+    -fx-padding: 15px 15px;
+    -fx-background-radius: 7px;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 17px;
+    -fx-text-fill: white;
+    -fx-background-color: rgb(93, 110, 203);
+}
+
+#title {
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 40px;
+    -fx-text-fill: #3d3d64;
+}

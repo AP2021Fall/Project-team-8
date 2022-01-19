@@ -1,0 +1,52 @@
+@font-face {
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+
+#body {
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(40, 40, 40, 0.36), 10, 0, 0, 0);
+}
+
+#header {
+    -fx-font-family: "Roboto Bold";
+    -fx-text-fill: #5b5b5b;
+    -fx-font-size: 14px;
+}
+
+#separator {
+    -fx-background-color: #727272;
+    -fx-effect: dropshadow(three-pass-box, rgba(40, 40, 40, 0.25), 10, 0, 0, 0);
+}
+
+
+#user {
+    -fx-font-family: "Roboto Medium";
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-border-color: #e5e5e5;
+}
+
+#user:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 66, 255, 0.21), 5, 0, 0, 0);
+    -fx-border-color: rgba(162, 183, 255, 0.56);
+}
+
+
+#inviteBtn {
+    -fx-font-family: "Roboto Medium";
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
