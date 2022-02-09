@@ -171,7 +171,7 @@ public class BoardController extends Controller {
         List selectedList;
 
         // Check For Error
-        authentication(user, board);
+//        authentication(user, board);
         lists = ListDao.getBoardLists(board);
         selectedList = assertListExists(lists, listName);
 
@@ -264,7 +264,7 @@ public class BoardController extends Controller {
         ArrayList<List> lists;
 
         // Check For Error
-        authentication(loggedInUser, board);
+//        authentication(loggedInUser, board);
         task = assertTaskExists(board, task.getId() + "");
 
         // New List (Optional)
